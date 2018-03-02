@@ -28,6 +28,12 @@ export default class Counter extends Component {
     requestAnimationFrame(this.animate.bind(this));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.start != nextProps.start) {
+      this.setState({value: nextProps.start});
+    }
+  }
+
   animate() {
     const { onComplete } = this.props;
 
