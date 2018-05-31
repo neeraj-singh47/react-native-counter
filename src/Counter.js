@@ -61,9 +61,9 @@ export default class Counter extends Component {
   render() {
     const { digits, style } = this.props;
     const { value } = this.state;
-
+    const regEx = new RegExp('^-?\\d+(?:\\.\\d{0,'+digits+'})?');
     return (
-      <Text style={style}>{value.toFixed(digits)}</Text>
+      <Text style={style}>{value.toString().match(regEx)[0]}</Text>
     );
   }
 }
